@@ -53,7 +53,7 @@ class TicketsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate(['status' => 'required|between:1,4|integer', 'cat' => 'required', 'desc' => 'required']);
+        $validatedData = $request->validate(['status' => 'required|between:1,4|integer']);
 
         if (!$validatedData)
         {
