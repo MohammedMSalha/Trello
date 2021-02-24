@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 class TicketsController extends Controller
 {
+
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -27,13 +30,10 @@ class TicketsController extends Controller
 
 
 
-
-
-
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Model\Product  $product
+     * @param  \App\Models\Model\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
     public function show(Ticket $ticket)
@@ -41,8 +41,6 @@ class TicketsController extends Controller
     
            
     }
-
-
 
 
 
@@ -78,7 +76,7 @@ class TicketsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Model\Product  $product
+     * @param  \App\Models\Model\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
     public function destroy(Ticket $ticket)
