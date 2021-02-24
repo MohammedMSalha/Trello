@@ -82,14 +82,14 @@ render(){
                   <Segment stacked>
                     <div className="field">
                       <div className="ui fluid left icon input">
-                          <Field  type="name" name="name" placeholder='Name' value={props.value.name}/>
+                          <Field  type="name" name="name" placeholder='Name' />
                           <i aria-hidden="true" className="user icon"></i>
                       </div> 
                           <ErrorMessage name='name' component="div" className="ui pointing red basic label"/> 
                     </div> 
                     <div className="field">
                       <div className="ui fluid left icon input">
-                          <Field  type="email" name="email" placeholder='E-mail Address' value={props.value.email}/>
+                          <Field  type="email" name="email" placeholder='E-mail Address' />
                           <i aria-hidden="true" className="user icon"></i>
                       </div> 
                           <ErrorMessage name='email' component="div" className="ui pointing red basic label"/> 
@@ -100,8 +100,6 @@ render(){
                             placeholder='Enter Password'
                             type='password'
                             name="password"   
-                            autoComplete="off"
-                            value={props.value.password}
                           />
                       <i aria-hidden="true" className="lock icon"></i>
                       </div>  
@@ -113,7 +111,6 @@ render(){
                             placeholder='Repeat Password'
                             type='password'
                             name="confirm_password"   
-                            value={props.value.confirm_password}
                           />
                           <i aria-hidden="true" className="user icon"></i>
                       </div> 
