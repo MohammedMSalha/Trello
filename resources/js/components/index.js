@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Switch,Route,Redirect} from 'react-router-dom';
-import Login from './login';
-import Register from './register';
+import Login from './pages/login';
+import Register from './pages/register';
 import { BrowserRouter } from 'react-router-dom';
-import Home from './home';
+import Home from './pages/home';
 
 
 

@@ -70,7 +70,7 @@ render(){
                   Register
             </Header>
             <Formik
-               initialValues={{email:'',password:''}}
+               initialValues={{name:'',email:'',password:'',confirm_password:''}}
                onSubmit={(values)=>this.submit(values)}
                validationSchema={
                  this.schema()
@@ -82,14 +82,14 @@ render(){
                   <Segment stacked>
                     <div className="field">
                       <div className="ui fluid left icon input">
-                          <Field  type="name" name="name" placeholder='Name' />
+                          <Field  type="name" name="name" placeholder='Name' value={props.value.name}/>
                           <i aria-hidden="true" className="user icon"></i>
                       </div> 
                           <ErrorMessage name='name' component="div" className="ui pointing red basic label"/> 
                     </div> 
                     <div className="field">
                       <div className="ui fluid left icon input">
-                          <Field  type="email" name="email" placeholder='E-mail Address' />
+                          <Field  type="email" name="email" placeholder='E-mail Address' value={props.value.email}/>
                           <i aria-hidden="true" className="user icon"></i>
                       </div> 
                           <ErrorMessage name='email' component="div" className="ui pointing red basic label"/> 
@@ -101,6 +101,7 @@ render(){
                             type='password'
                             name="password"   
                             autoComplete="off"
+                            value={props.value.password}
                           />
                       <i aria-hidden="true" className="lock icon"></i>
                       </div>  
@@ -112,7 +113,7 @@ render(){
                             placeholder='Repeat Password'
                             type='password'
                             name="confirm_password"   
-                            autoComplete="off"
+                            value={props.value.confirm_password}
                           />
                           <i aria-hidden="true" className="user icon"></i>
                       </div> 

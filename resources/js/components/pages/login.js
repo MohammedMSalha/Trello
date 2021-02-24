@@ -93,7 +93,7 @@ render(){
                           <Field  type="email" name="email" placeholder='E-mail address' />
                           <i aria-hidden="true" className="user icon"></i>
                       </div> 
-                          <ErrorMessage name='email' component="div" className="ui pointing red basic label"/> 
+                          <ErrorMessage name='email' component="div" className="ui pointing red basic label" value={props.value.email} /> 
                     </div> 
                     <div className="field">  
                       <div className="ui fluid left icon input">
@@ -101,7 +101,7 @@ render(){
                             placeholder='Enter Password'
                             type='password'
                             name="password"   
-                            autoComplete="off"
+                            value={props.value.password}
                           />
                       <i aria-hidden="true" className="lock icon"></i>
                       </div>  
