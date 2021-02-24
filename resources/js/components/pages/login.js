@@ -105,17 +105,12 @@ render(){
                           />
                       <i aria-hidden="true" className="lock icon"></i>
                       </div>  
-                      <ErrorMessage name='password' component="div" className="ui pointing red basic label"/> 
-                      
-                    </div>  
-
-                        
+                      <ErrorMessage name='password' component="div" className="ui pointing red basic label"/>        
+                    </div>             
                           <Button color='teal' fluid size='large' type='submit' >
                           Login
                           </Button>
-                        
-                  
-                  
+
                   </Segment>
                 </Form>
           

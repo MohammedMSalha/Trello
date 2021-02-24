@@ -122,9 +122,6 @@ render(){
                           <Button color='teal' fluid size='large' type='submit' >
                           Sign Up
                           </Button>
-                        
-                  
-                  
                   </Segment>
                 </Form>
           
