@@ -15,12 +15,12 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->index();
+            $table->bigInteger('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
             $table->longText('description');
-            $table->string('file')->unique();
-            $table->integer('status');
+            $table->string('file')->nullable();
+            $table->smallInteger('status')->default(1);
             $table->timestamps();
         });
     }

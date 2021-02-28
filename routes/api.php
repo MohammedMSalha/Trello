@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JwtAuthController;
+use App\Http\Controllers\TicketsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,9 @@ Route::group(
         Route::post('register', 'JwtAuthController@register');
         Route::post('logout', 'JwtAuthController@logout');
         Route::post('refresh', 'JwtAuthController@refresh');
+        Route::get('tickets', 'TicketsController@index');
+        Route::put('tickets/{id}', 'TicketsController@updatePosition');
+        Route::post('tickets', 'TicketsController@store');
     }
 );
  

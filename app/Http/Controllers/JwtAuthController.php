@@ -51,7 +51,9 @@ class JwtAuthController extends Controller
         $req = Validator::make($request->all(), [
             'name' => 'required|string|between:2,100',
             'email' => 'required|string|email|max:100|unique:users',
-            'password' => 'required|string|confirmed|min:6',
+            'password' => 'required|string|confirmed|min:8',
+            'password_confirmation' => 'required|min:8|same:password'
+
         ]);
 
         if($req->fails()){
