@@ -49,28 +49,18 @@ class Register extends Component{
           try {
                 axios.post('http://127.0.0.1:8000/api/auth/register',data).then(
                 response=> {
-                  console.log(response);
                 if(response.status==201){
                   this.notify(true,'Success','You have successfully Register. Please login now','green');
                   setTimeout(() => { 
                     this.props.history.push('/login');
                 }, 5000)
-                }else if(response.status==400){
-                  this.setState({
-                    loading:false,
-                    disabled:false,
-                });
-                this.notify(true,'Login Error','This account is already registered','red');
-
                 }
-                
             }).catch(error => {
               this.setState({
                 loading:false,
                 disabled:false,
             });
-            this.notify(true,'Login Error','Something went wrong, please try again later','red');
-  
+            this.notify(true,'Login Error','This account is already registered','red');
             });
         } catch (error) {
             this.setState({
