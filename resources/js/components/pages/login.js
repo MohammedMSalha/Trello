@@ -41,6 +41,8 @@ class Login extends Component{
       this.notify= this.notify.bind(this);
 
   }
+
+  
   
   /**
    * send login post request 
@@ -50,7 +52,6 @@ class Login extends Component{
    * @date 24/2/2021
    */
   async loginUser(){
-
     //POST request with a JSON body using axios
     const article = { email: this.state.email ,password:this.state.password};
     try {
@@ -71,7 +72,6 @@ class Login extends Component{
               this.setState({loading:false});
               //change notification message to error 
               this.notify(true,'Login Error','Please try again with correct information','red');
-
       });
     } catch (error) {
               this.notify(true,'Login Error','Please try again with correct information','red');
@@ -83,17 +83,17 @@ class Login extends Component{
 
    /**
      * update notification status
-     * @param {*} $status 
-     * @param {*} $title 
-     * @param {*} $desc 
-     * @param {*} $color 
+     * @param {*} status 
+     * @param {*} title 
+     * @param {*} desc 
+     * @param {*} color 
      */
-    notify($status,$title,$desc,$color){
+    notify(status,title,desc,color){
       this.setState({
-        notifyStatus:$status,
-        notifyTitle:$title,
-        notifyDescription:$desc,
-        notifyColor:$color
+        notifyStatus:status,
+        notifyTitle:title,
+        notifyDescription:desc,
+        notifyColor:color
       })
     }
 

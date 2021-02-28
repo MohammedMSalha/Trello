@@ -36,7 +36,6 @@ class Register extends Component{
 
 
   handleRegister(values){
-
           this.setState({
               loading:true,
               disabled:true
@@ -79,7 +78,6 @@ class Register extends Component{
               disabled:false,
             });
             this.notify(true,'Login Error','Something went wrong, please try again later','red');
-
         }
   }
 
@@ -88,19 +86,19 @@ class Register extends Component{
 
 
 
-      /**
-       * this to manage notification
-       * @param {*} $status 
-       * @param {*} $title 
-       * @param {*} $desc 
-       * @param {*} $color 
-       */
-    notify($status,$title,$desc,$color){
+    /**
+     * this to manage notification
+     * @param {*} $status 
+     * @param {*} $title 
+     * @param {*} $desc 
+     * @param {*} $color 
+     */
+    notify(status,title,desc,color){
       this.setState({
-        notifyStatus:$status,
-        notifyTitle:$title,
-        notifyDescription:$desc,
-        notifyColor:$color
+        notifyStatus:status,
+        notifyTitle:title,
+        notifyDescription:desc,
+        notifyColor:color
       })
     }
 

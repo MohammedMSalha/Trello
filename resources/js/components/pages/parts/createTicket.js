@@ -38,7 +38,6 @@ class CreateTicket extends Component{
     * @date 24/2/2021
     */
     schema(){
-
       let schema = yup.object().shape({
         title:yup.string().max(125, "title max length 125").required(),
         description:yup.string().required() ,
@@ -53,7 +52,6 @@ class CreateTicket extends Component{
 
     handleSubmit(values){
       const auth = { 'Authorization':store.getState().Reducer.data.token_type+' '+store.getState().Reducer.data.access_token};
-
       try {
                  axios.post('http://127.0.0.1:8000/api/auth/tickets/',values,{'headers':auth}).then(
                 response=> {
@@ -74,18 +72,18 @@ class CreateTicket extends Component{
 
 
     /**
-     * update notification status
-     * @param {*} $status 
-     * @param {*} $title 
-     * @param {*} $desc 
-     * @param {*} $color 
+     * Update notification status
+     * @param {*} status 
+     * @param {*} title 
+     * @param {*} desc 
+     * @param {*} color 
      */
-    notify($status,$title,$desc,$color){
+    notify(status,title,desc,color){
       this.setState({
-        notifyStatus:$status,
-        notifyTitle:$title,
-        notifyDescription:$desc,
-        notifyColor:$color
+        notifyStatus:status,
+        notifyTitle:title,
+        notifyDescription:desc,
+        notifyColor:color
       })
     }
 
