@@ -77,33 +77,7 @@ class TicketsController extends Controller
 
 
 
-    /**
-     * Update the specified resource in storage (Ticket Status).
-     *
-     * @param  int  $id
-     * @return Response
-     * @author Mohammed M.Salha
-     */
-    public function updateIndex(Request $request, $id)
-    {
-        $validatedData = $request->validate(['status' => 'required|between:1,4|integer']);
-
-        if (!$validatedData)
-        {
-            return Redirect::back()->withErrors($validatedData);
-        }
-        $ticket = Ticket::find($id);
-        if ($ticket == null)
-        {
-           //return response error
-        }
-        $ticket->status = $request->status;
-        $ticket->save();
-        return redirect()
-            ->back()
-            ->withSuccess('Success,ticket Moved ^_^');
-    }
-
+    
 
 
     /**
