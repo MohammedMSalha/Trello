@@ -138,7 +138,7 @@ class CreateTicket extends Component{
                       </div> 
                       <ErrorMessage name='file' component="div" className="ui pointing red basic label"/>        
 
-                      
+                      </Segment>
                       <Modal.Actions>
                         <Button color='black' onClick={() => this.setState({open:false}) }>
                           Close
@@ -150,7 +150,7 @@ class CreateTicket extends Component{
                           positive
                         />
                       </Modal.Actions>
-                      </Segment>
+                   
                   </Form>
             
                       )}
