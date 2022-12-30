@@ -2,7 +2,7 @@ name: Build and Deploy
 on:
     push:
         branches:
-            -   master
+            -   main
 
 jobs:
     build:
@@ -10,7 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Repository
-                uses: actions/checkout@master
+                uses: actions/checkout@main
             -   name: Deploy to Server
                 uses: ngocquyhoang/deploy@laravel
                 with:
