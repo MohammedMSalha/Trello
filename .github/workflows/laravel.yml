@@ -1,0 +1,55 @@
+name: Build and Deploy
+on:
+    push:
+        branches:
+            -   master
+
+jobs:
+    build:
+        name: Build and Deploy
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout Repository
+                uses: actions/checkout@master
+            -   name: Deploy to Server
+                uses: ngocquyhoang/deploy@laravel
+                with:
+                    user: ubuntu
+                    host: 3.121.105.153
+                    path: /var/www/html/
+                    owner: ubuntu
+                env:
+                    DEPLOY_KEY: ${{ secrets.SSH_HOST }}
+            - name: Deploy to production
+              uses: appleboy/ssh-action@master
+              with:
+                 username: ubuntu
+                 host: 3.121.105.153
+                 key: ${{ secrets.SSH_HOST }}
+                 script: |
+                     cd /var/www/html/
+                     cp .env.example .env
+                     rm -r vendor
+                     rm -r package-lock.json
+                     rm -r composer.lock
+                     composer install
+                     php artisan down
+                     rm -rf node_modules
+                     rm package-lock.json yarn.lock
+                     npm cache clear --force
+                     npm install react@latest react-dom@latest
+                     npm i @vitejs/plugin-react --force
+                     npm i @vitejs/plugin-react-refresh --force
+                     
+                     
+                     php artisan optimize:clear
+                     php artisan key:generate
+                     php artisan migrate:fresh --seed
+                     sudo chown -R $USER:www-data .
+                     sudo find . -type f -exec chmod 664 {} \;   
+                     sudo find . -type d -exec chmod 775 {} \;
+                     chgrp -R www-data storage bootstrap/cache
+                     chmod -R ug+rwx storage bootstrap/cache
+                     chmod -R 775 /var/www/html
+                     npm run build
+                     php artisan up
