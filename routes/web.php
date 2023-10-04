@@ -27,7 +27,7 @@ Route::get('login', function () {
     return view('login');
 });
 
-//Without Middleware
+
 Route::get('dashboard', function () {
     return view('dashboard');
 });
